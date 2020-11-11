@@ -1,2 +1,13 @@
-<h1>Posts#index</h1>
+<h1>ジム一覧</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+<p>強くあれ</p>
+    <%= link_to '投稿', new_post_path %>
+
+
+<% @post.each do |post| %>
+    <%= link_to post_path(post.id) do %>
+      <%= post.gim_name %><br>
+    <% end %>
+  <%= post.body %><br>
+
+<% end %>
