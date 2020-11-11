@@ -1,11 +1,19 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all
+    @posts = Post.all
   end
 
   def show
     @post =  Post.find(params[:id])
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
+
+
 
   def new
     @post = Post.new
@@ -16,8 +24,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update(post_params)
+    @post = Post.find(params[:id])
+    @post.update(post_params)
     redirect_to posts_path  #投稿詳細に戻したい
   end
 
