@@ -6,8 +6,22 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def edit
+  end
+
+  # 投稿データ保存
+  def create
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.save
+    redirect_to posts_path
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:name, :body, :user_id)
   end
 end
