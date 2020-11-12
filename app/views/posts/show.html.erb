@@ -3,7 +3,7 @@
 
 <%= @post.user.username %>
 <%= @post.gim_name %>
-<%= @post.body %>
+<%= @post.body %><br>
 <%= attachment_image_tag(@post, :gim_image, size: "30x30", format: 'jpeg') %>
 <%= link_to '編集', edit_post_path(@post) %>
 <%= link_to "削除", post_path(@post), method: :delete %>
