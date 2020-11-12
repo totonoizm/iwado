@@ -1,2 +1,11 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+<p>ジム名</p>
+<%= form_with model:@post, local: true do |f| %>
+  <h4>ジム名</h4>
+  <%= f.text_field :gim_name %>
+
+  <h4>レビュー</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '保存' %>
+<% end %>
