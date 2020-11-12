@@ -10,5 +10,7 @@
       <%= post.gim_name %><br>
     <% end %>
   <%= post.body %><br>
+  <%= post.user.username %><br>
+  <%= attachment_image_tag(post, :gim_image, size: "30x30", format: 'jpeg') %>
 
 <% end %>
