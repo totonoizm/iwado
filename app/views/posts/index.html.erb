@@ -3,14 +3,31 @@
 <p>強くあれ</p>
     <%= link_to '投稿', new_post_path %>
 
+<div class="container">
+    <div class="row">
+      <div class="col-xs-3">
+      <h2>サイドバー領域</h2>
+      </div>
+      <div class="col-xs-9">
+        <table class="table">
+        <h2>ジム一覧</h2>
+          <tr>
+            <th></th>
+            <th>ジム名前</th>
+            <th>感想</th>
+            <th>Username</th>
+          </tr>
+          <% @posts.each do |post| %>
+            <tr>
+              <td><%= attachment_image_tag(post, :gim_image, size: "30x30", format: 'jpeg') %></td><!-- !!user.showへリンクしたい！！bookmodelに紐付けたuserのprofile_imageを表示します-->
+              <td><%= link_to post.gim_name,post_path(post.id) %></td>   <!--テキストのみの表示の仕方を考える--??-->
+              <td><%= post.body %></td>
+              <td><%= post.user.username %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+  </div>
 
 
-<% @posts.each do |post| %>
-    <%= link_to post_path(post.id) do %>
-      <%= post.gim_name %><br>
-    <% end %>
-  <%= post.body %><br>
-  あなたの名前　<%= post.user.username %><br>
-  <%= attachment_image_tag(post, :gim_image, size: "30x30", format: 'jpeg') %>
 
-<% end %>
